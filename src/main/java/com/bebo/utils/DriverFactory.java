@@ -34,6 +34,7 @@ public class DriverFactory {
     }
 
     public WebDriver setDriver(BrowserType browser){
+        String getOS = System.getProperty("os.name").toLowerCase();
         String osName = "";
         if(getOS.contains("mac")){
             osName = "mac";
