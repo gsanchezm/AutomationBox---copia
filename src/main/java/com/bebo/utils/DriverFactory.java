@@ -44,7 +44,7 @@ public class DriverFactory {
             osName = "linux";
         }
         
-        String driverPath = System.getProperty("user.dir") + "\\drivers\\";
+        String driverPath = System.getProperty("user.dir") + "/drivers/";
 
         switch (browser.toString()){
             case "CHROME":
