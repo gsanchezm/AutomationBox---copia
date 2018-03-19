@@ -2,6 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
+image: selenium/standalone-chrome:3.1.0
 version: 2
 jobs:
   build:
