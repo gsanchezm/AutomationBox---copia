@@ -34,7 +34,15 @@ public class DriverFactory {
     }
 
     public WebDriver setDriver(BrowserType browser){
-        String osName = System.getProperty("os.name").toLowerCase().contains("mac")?"mac":"windows";
+        String osName = "";
+        if(getOS.contains("mac")){
+            osName = "mac";
+        }else if(getOS.contains("win")){
+            osName = "windows";
+        }else if(getOS.contains("nix") || getOS.contains("nux") || getOS.contains("aix")){
+            osName = "linux";
+        }
+        
         String driverPath = System.getProperty("user.dir") + "\\drivers\\";
 
         switch (browser.toString()){
