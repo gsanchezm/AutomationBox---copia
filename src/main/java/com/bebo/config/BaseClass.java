@@ -56,7 +56,7 @@ public class BaseClass {
 
         exProp.getExtent().loadConfig(new File(Constants.EXTENT_CONFIG));
         // Start the test using the ExtentTest class object.
-        DriverFactory.getInstance().setDriver(BrowserType.CHROME);
+        DriverFactory.getInstance().setDriver(BrowserType.REMOTE);
         driver = DriverFactory.getInstance().getDriver();
 
         allFiles = new AllFilesPage();
