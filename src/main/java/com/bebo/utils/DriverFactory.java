@@ -12,6 +12,11 @@ import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
+    
+    public static final String USERNAME = "fernando_chacon";
+    public static final String ACCESS_KEY = "44975c70-d113-4446-b48f-133f5801805f";
+    public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
+
     private DriverFactory(){
 
     }
@@ -47,6 +52,16 @@ public class DriverFactory {
         String driverPath = System.getProperty("user.dir") + "/drivers/";
 
         switch (browser.toString()){
+            case "REMOTE":
+                DesiredCapabilities caps = DesiredCapabilities.chrome();
+                caps.setCapability("platform", "Windows 10");
+                caps.setCapability("version", "65.0");
+                try {
+                    driver.set(new RemoteWebDriver(new URL(URL), caps));
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                break;
             case "CHROME":
                 if(osName.equals("windows")){
                     System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
